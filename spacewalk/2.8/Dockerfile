@@ -6,12 +6,10 @@ RUN rpm --import https://copr-be.cloud.fedoraproject.org/results/%40spacewalkpro
     rpm --import /etc/pki/rpm-gpg/* && \
     rpm -Uvh https://copr-be.cloud.fedoraproject.org/results/%40spacewalkproject/spacewalk-2.8/epel-7-x86_64/00736372-spacewalk-repo/spacewalk-repo-2.8-11.el7.centos.noarch.rpm && \
     rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    cat /etc/yum.repos.d/*.repo && \
-    #yum update -y && \
+    yum update -y && \
     yum install yum-utils -y && yum-config-manager repo --enable epel-testing && \
     yum install -y spacewalk-postgresql syslinux  spacewalk-taskomatic spacewalk-common && \
-    #yum clean all
-    pwd
+    yum clean all
 
 ADD answer.txt /root/answer.txt
 ADD bin/docker-spacewalk-setup.sh /root/docker-spacewalk-setup.sh
