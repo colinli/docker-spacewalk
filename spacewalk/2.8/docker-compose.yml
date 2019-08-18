@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    hostname: spacewalk-postgresql.docker
+    ports:
+    - "5432:5432"
+    volumes:
+    - swdb:/var/lib/postgresql/data     
+    environment:
+    - POSTGRES_PASSWORD:password 
+    image: artifacts.dev.activenetwork.com:8080/se/spacewalkdb
+    
+
+  spacewalk:
+    ports:
+    - "80:80"
+    - "443:443"
+    links:
+    - postgres:postgresql-host
+    image: artifacts.dev.activenetwork.com:8080/se/spacewalk:2.8
+   
+volumes:
+  swdb:

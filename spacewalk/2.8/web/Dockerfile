@@ -16,10 +16,10 @@ ADD bin/docker-spacewalk-setup.sh /root/docker-spacewalk-setup.sh
 ADD bin/docker-spacewalk-run.sh /root/docker-spacewalk-run.sh
 ADD bin/spacewalk-hostname-rename.sh /root/spacewalk-hostname-rename.sh
 
-RUN mkdir -p /etc/httpd/conf/ssl.crt /etc/httpd/conf/ssl.key && \
-    cp /etc/pki/tls/certs/localhost.crt  /etc/httpd/conf/ssl.crt/server.crt && \
-    cp /etc/pki/tls/private/localhost.key  /etc/httpd/conf/ssl.key/server.key && \
-    chmod a+x /root/docker-spacewalk-{run,setup}.sh
+#RUN mkdir -p /etc/httpd/conf/ssl.crt /etc/httpd/conf/ssl.key && \
+#    cp /etc/pki/tls/certs/localhost.crt  /etc/httpd/conf/ssl.crt/server.crt && \
+#    cp /etc/pki/tls/private/localhost.key  /etc/httpd/conf/ssl.key/server.key && \
+RUN  chmod a+x /root/docker-spacewalk-{run,setup}.sh
 
 EXPOSE 69 80 443 5222
 
